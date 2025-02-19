@@ -1,0 +1,15 @@
+showVerionsTab: false
+showEnvVarsTab: true
+useRawYaml: false
+allowAutoApplyLimits: false
+name: n8n
+title: n8n
+logo: null
+tags:
+  - Management
+  - DevOps
+  - AI
+  - Personal
+description: n8n is an extendable workflow automation tool.
+oneDeploymentPerCluster: false
+notAllowRemoveNamespace: false
