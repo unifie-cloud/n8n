@@ -160,6 +160,54 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
+  - varName: main.config.db.mysqldb.database
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: n8n
+    refToSpecVar: ''
+    UIVarTitle: mysql database name
+    UIVarInputType: text
+  - varName: main.config.db.mysqldb.host
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: localhost
+    refToSpecVar: ''
+    UIVarTitle: mysql database host
+    UIVarInputType: text
+  - varName: main.config.db.mysqldb.password
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: mysql database password
+    UIVarInputType: password
+  - varName: main.config.db.mysqldb.port
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: '3306'
+    refToSpecVar: ''
+    UIVarTitle: mysql database port
+    UIVarInputType: number
+  - varName: main.config.db.mysqldb.user
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: root
+    refToSpecVar: ''
+    UIVarTitle: mysql database user
+    UIVarInputType: text
+  - varName: main.config.db.type
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: mysqldb
+    refToSpecVar: ''
+    UIVarTitle: DB_TYPE
+    UIVarInputType: text
   - varName: main.deploymentStrategy.type
     varValueType: string
     varValueSrcType: src_hardcoded
@@ -874,62 +922,6 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: main.config.db.type
-    varApplyMethod: method_replace
-    varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: postgresdb
-    refToSpecVar: ''
-    UIVarTitle: DB_TYPE
-    UIVarInputType: text
-  - varName: main.config.db.postgresdb.database
-    varApplyMethod: method_replace
-    varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: n8n
-    refToSpecVar: ''
-    UIVarTitle: postgresdb database name
-    UIVarInputType: text
-  - varName: main.config.db.postgresdb.host
-    varApplyMethod: method_replace
-    varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: localhost
-    refToSpecVar: ''
-    UIVarTitle: postgresdb database host
-    UIVarInputType: text
-  - varName: main.config.db.postgresdb.password
-    varApplyMethod: method_replace
-    varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: ''
-    refToSpecVar: ''
-    UIVarTitle: postgresdb database password
-    UIVarInputType: password
-  - varName: main.config.db.postgresdb.port
-    varApplyMethod: method_replace
-    varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: '5432'
-    refToSpecVar: ''
-    UIVarTitle: postgresdb database port
-    UIVarInputType: number
-  - varName: main.config.db.postgresdb.user
-    varApplyMethod: method_replace
-    varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: root
-    refToSpecVar: ''
-    UIVarTitle: postgresdb database user
-    UIVarInputType: text
-  - varName: main.config.db.postgresdb.schema
-    varApplyMethod: method_replace
-    varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: public
-    refToSpecVar: ''
-    UIVarTitle: postgresdb database schema
-    UIVarInputType: text
 routes:
   - host: '{{ .deployment.domain }}'
     http:
