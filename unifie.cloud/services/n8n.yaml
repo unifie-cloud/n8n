@@ -4,7 +4,932 @@ helmRepositoryName: my-n8n
 helmRepositoryURL: oci://8gears.container-registry.com/library/n8n
 helmRepositoryVersion: 1.0.0
 helmRepositoryChartName: n8n
-rules: []
+rules:
+  - varName: fullnameOverride
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'null'
+    refToSpecVar: ''
+    UIVarTitle: fullnameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '{"repository":"n8nio/n8n","pullPolicy":"IfNotPresent","tag":""}'
+    refToSpecVar: ''
+    UIVarTitle: image
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.pullPolicy
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: IfNotPresent
+    refToSpecVar: ''
+    UIVarTitle: image.pullPolicy
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.repository
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: n8nio/n8n
+    refToSpecVar: ''
+    UIVarTitle: image.repository
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: image.tag
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: image.tag
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: imagePullSecrets
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: imagePullSecrets
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"annotations":{},"className":"","hosts":[{"host":"workflow.example.com","paths":[]}],"tls":[{"hosts":["workflow.example.com"],"secretName":"host-domain-cert"}]}
+    refToSpecVar: ''
+    UIVarTitle: ingress
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.className
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: ingress.className
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ingress.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.hosts.0.host
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: workflow.example.com
+    refToSpecVar: ''
+    UIVarTitle: ingress.hosts.0.host
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.tls.0.hosts.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: workflow.example.com
+    refToSpecVar: ''
+    UIVarTitle: ingress.tls.0.hosts.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: ingress.tls.0.secretName
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: host-domain-cert
+    refToSpecVar: ''
+    UIVarTitle: ingress.tls.0.secretName
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"config":{},"secret":{},"extraEnv":null,"persistence":{"enabled":false,"type":"emptyDir","accessModes":["ReadWriteOnce"],"size":"1Gi"},"extraVolumes":[],"extraVolumeMounts":[],"replicaCount":1,"deploymentStrategy":{"type":"Recreate"},"serviceAccount":{"create":true,"annotations":{},"name":""},"podAnnotations":{},"podLabels":{},"podSecurityContext":{"runAsNonRoot":true,"runAsUser":1000,"runAsGroup":1000,"fsGroup":1000},"securityContext":{},"lifecycle":{},"command":[],"livenessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"readinessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"initContainers":[],"service":{"annotations":{},"type":"ClusterIP","port":80},"resources":{},"autoscaling":{"enabled":false,"minReplicas":1,"maxReplicas":100,"targetCPUUtilizationPercentage":80},"nodeSelector":{},"tolerations":[],"affinity":{}}
+    refToSpecVar: ''
+    UIVarTitle: main
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.autoscaling.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: main.autoscaling.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.autoscaling.maxReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '100'
+    refToSpecVar: ''
+    UIVarTitle: main.autoscaling.maxReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.autoscaling.minReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: main.autoscaling.minReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.autoscaling.targetCPUUtilizationPercentage
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: main.autoscaling.targetCPUUtilizationPercentage
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.deploymentStrategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Recreate
+    refToSpecVar: ''
+    UIVarTitle: main.deploymentStrategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.livenessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /healthz
+    refToSpecVar: ''
+    UIVarTitle: main.livenessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.livenessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: main.livenessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.persistence.accessModes.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ReadWriteOnce
+    refToSpecVar: ''
+    UIVarTitle: main.persistence.accessModes.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.persistence.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: main.persistence.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.persistence.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 1Gi
+    refToSpecVar: ''
+    UIVarTitle: main.persistence.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.persistence.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: emptyDir
+    refToSpecVar: ''
+    UIVarTitle: main.persistence.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: main.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.podSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: main.podSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.podSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: main.podSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.podSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: main.podSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.readinessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /healthz
+    refToSpecVar: ''
+    UIVarTitle: main.readinessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.readinessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: main.readinessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: main.replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.service.port
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: main.service.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: main.service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.serviceAccount.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: main.serviceAccount.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.serviceAccount.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: main.serviceAccount.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: nameOverride
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'null'
+    refToSpecVar: ''
+    UIVarTitle: nameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: redis
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"architecture":"standalone","primary":{"persistence":{"enabled":false,"existingClaim":"","size":"2Gi"}}}
+    refToSpecVar: ''
+    UIVarTitle: redis
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: redis.architecture
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: standalone
+    refToSpecVar: ''
+    UIVarTitle: redis.architecture
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: redis.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: redis.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: redis.primary.persistence.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: redis.primary.persistence.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: redis.primary.persistence.existingClaim
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: redis.primary.persistence.existingClaim
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: redis.primary.persistence.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 2Gi
+    refToSpecVar: ''
+    UIVarTitle: redis.primary.persistence.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: resources
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: resources
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: templates
+    varValueType: array
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '[]'
+    refToSpecVar: ''
+    UIVarTitle: templates
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"config":{},"secret":{},"extraEnv":{},"persistence":{"enabled":false,"type":"emptyDir","accessModes":["ReadWriteOnce"],"size":"1Gi"},"replicaCount":1,"deploymentStrategy":{"type":"Recreate"},"nameOverride":"","fullnameOverride":"","serviceAccount":{"create":true,"annotations":{},"name":""},"podAnnotations":{},"podLabels":{},"podSecurityContext":{"runAsNonRoot":true,"runAsUser":1000,"runAsGroup":1000,"fsGroup":1000},"securityContext":{},"lifecycle":{},"command":[],"commandArgs":[],"livenessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"readinessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"initContainers":[],"service":{"annotations":{},"type":"ClusterIP","port":80},"resources":{},"autoscaling":{"enabled":false,"minReplicas":1,"maxReplicas":100,"targetCPUUtilizationPercentage":80},"nodeSelector":{},"tolerations":[],"affinity":{}}
+    refToSpecVar: ''
+    UIVarTitle: webhook
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.autoscaling.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: webhook.autoscaling.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.autoscaling.maxReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '100'
+    refToSpecVar: ''
+    UIVarTitle: webhook.autoscaling.maxReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.autoscaling.minReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: webhook.autoscaling.minReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.autoscaling.targetCPUUtilizationPercentage
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: webhook.autoscaling.targetCPUUtilizationPercentage
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.deploymentStrategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Recreate
+    refToSpecVar: ''
+    UIVarTitle: webhook.deploymentStrategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: webhook.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.fullnameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: webhook.fullnameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.livenessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /healthz
+    refToSpecVar: ''
+    UIVarTitle: webhook.livenessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.livenessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: webhook.livenessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.nameOverride
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: webhook.nameOverride
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.persistence.accessModes.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ReadWriteOnce
+    refToSpecVar: ''
+    UIVarTitle: webhook.persistence.accessModes.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.persistence.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: webhook.persistence.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.persistence.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 1Gi
+    refToSpecVar: ''
+    UIVarTitle: webhook.persistence.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.persistence.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: emptyDir
+    refToSpecVar: ''
+    UIVarTitle: webhook.persistence.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: webhook.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.podSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: webhook.podSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.podSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: webhook.podSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.podSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: webhook.podSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.readinessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /healthz
+    refToSpecVar: ''
+    UIVarTitle: webhook.readinessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.readinessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: webhook.readinessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: webhook.replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.service.port
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: webhook.service.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: webhook.service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.serviceAccount.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: webhook.serviceAccount.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: webhook.serviceAccount.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: webhook.serviceAccount.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker
+    varValueType: object
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: >-
+      {"enabled":false,"count":2,"concurrency":10,"persistence":{"enabled":false,"type":"emptyDir","accessModes":["ReadWriteOnce"],"size":"1Gi"},"replicaCount":1,"deploymentStrategy":{"type":"Recreate"},"serviceAccount":{"create":true,"annotations":{},"name":""},"podAnnotations":{},"podLabels":{},"podSecurityContext":{"runAsNonRoot":true,"runAsUser":1000,"runAsGroup":1000,"fsGroup":1000},"securityContext":{},"lifecycle":{},"command":[],"commandArgs":[],"livenessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"readinessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"initContainers":[],"service":{"annotations":{},"type":"ClusterIP","port":80},"resources":{},"autoscaling":{"enabled":false,"minReplicas":1,"maxReplicas":100,"targetCPUUtilizationPercentage":80},"nodeSelector":{},"tolerations":[],"affinity":{}}
+    refToSpecVar: ''
+    UIVarTitle: worker
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.autoscaling.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: worker.autoscaling.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.autoscaling.maxReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '100'
+    refToSpecVar: ''
+    UIVarTitle: worker.autoscaling.maxReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.autoscaling.minReplicas
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: worker.autoscaling.minReplicas
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.autoscaling.targetCPUUtilizationPercentage
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: worker.autoscaling.targetCPUUtilizationPercentage
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.concurrency
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '10'
+    refToSpecVar: ''
+    UIVarTitle: worker.concurrency
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.count
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '2'
+    refToSpecVar: ''
+    UIVarTitle: worker.count
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.deploymentStrategy.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: Recreate
+    refToSpecVar: ''
+    UIVarTitle: worker.deploymentStrategy.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: worker.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.livenessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /healthz
+    refToSpecVar: ''
+    UIVarTitle: worker.livenessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.livenessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: worker.livenessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.persistence.accessModes.0
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ReadWriteOnce
+    refToSpecVar: ''
+    UIVarTitle: worker.persistence.accessModes.0
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.persistence.enabled
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: worker.persistence.enabled
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.persistence.size
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 1Gi
+    refToSpecVar: ''
+    UIVarTitle: worker.persistence.size
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.persistence.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: emptyDir
+    refToSpecVar: ''
+    UIVarTitle: worker.persistence.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.podSecurityContext.fsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: worker.podSecurityContext.fsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.podSecurityContext.runAsGroup
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: worker.podSecurityContext.runAsGroup
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.podSecurityContext.runAsNonRoot
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: worker.podSecurityContext.runAsNonRoot
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.podSecurityContext.runAsUser
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1000'
+    refToSpecVar: ''
+    UIVarTitle: worker.podSecurityContext.runAsUser
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.readinessProbe.httpGet.path
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: /healthz
+    refToSpecVar: ''
+    UIVarTitle: worker.readinessProbe.httpGet.path
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.readinessProbe.httpGet.port
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: http
+    refToSpecVar: ''
+    UIVarTitle: worker.readinessProbe.httpGet.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.replicaCount
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '1'
+    refToSpecVar: ''
+    UIVarTitle: worker.replicaCount
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.service.port
+    varValueType: number
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: '80'
+    refToSpecVar: ''
+    UIVarTitle: worker.service.port
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.service.type
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ClusterIP
+    refToSpecVar: ''
+    UIVarTitle: worker.service.type
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.serviceAccount.create
+    varValueType: boolean
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'true'
+    refToSpecVar: ''
+    UIVarTitle: worker.serviceAccount.create
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: worker.serviceAccount.name
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: worker.serviceAccount.name
+    varApplyMethod: method_replace
+    UIVarValidationRules: []
+    UIVarInputType: string
+  - varName: main.config.db.type
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: postgresdb
+    refToSpecVar: ''
+    UIVarTitle: DB_TYPE
+    UIVarInputType: text
+  - varName: main.config.db.postgresdb.database
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: n8n
+    refToSpecVar: ''
+    UIVarTitle: postgresdb database name
+    UIVarInputType: text
+  - varName: main.config.db.postgresdb.host
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: localhost
+    refToSpecVar: ''
+    UIVarTitle: postgresdb database host
+    UIVarInputType: text
+  - varName: main.config.db.postgresdb.password
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: ''
+    refToSpecVar: ''
+    UIVarTitle: postgresdb database password
+    UIVarInputType: password
+  - varName: main.config.db.postgresdb.port
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: '5432'
+    refToSpecVar: ''
+    UIVarTitle: postgresdb database port
+    UIVarInputType: number
+  - varName: main.config.db.postgresdb.user
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: root
+    refToSpecVar: ''
+    UIVarTitle: postgresdb database user
+    UIVarInputType: text
+  - varName: main.config.db.postgresdb.schema
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_deployment_ui
+    hardcodedDefaultValue: public
+    refToSpecVar: ''
+    UIVarTitle: postgresdb database schema
+    UIVarInputType: text
 routes:
   - host: '{{ .deployment.domain }}'
     http:
