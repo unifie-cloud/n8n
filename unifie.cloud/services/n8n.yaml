@@ -34,7 +34,7 @@ rules:
     UIVarInputType: string
   - varName: image.repository
     varValueType: string
-    varValueSrcType: src_hardcoded
+    varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: n8nio/n8n
     refToSpecVar: ''
     UIVarTitle: image.repository
@@ -43,7 +43,7 @@ rules:
     UIVarInputType: string
   - varName: image.tag
     varValueType: string
-    varValueSrcType: src_hardcoded
+    varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: ''
     refToSpecVar: ''
     UIVarTitle: image.tag
@@ -160,51 +160,51 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
-  - varName: main.config.db.mysqldb.database
+  - varName: main.config.db.postgresdb.database
     varApplyMethod: method_replace
     varValueType: string
     varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: n8n
     refToSpecVar: ''
-    UIVarTitle: mysql database name
+    UIVarTitle: postgres database name
     UIVarInputType: text
-  - varName: main.config.db.mysqldb.host
+  - varName: main.config.db.postgresdb.host
     varApplyMethod: method_replace
     varValueType: string
     varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: localhost
     refToSpecVar: ''
-    UIVarTitle: mysql database host
+    UIVarTitle: postgres database host
     UIVarInputType: text
-  - varName: main.config.db.mysqldb.password
+  - varName: main.config.db.postgresdb.password
     varApplyMethod: method_replace
     varValueType: string
     varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: ''
     refToSpecVar: ''
-    UIVarTitle: mysql database password
+    UIVarTitle: postgres database password
     UIVarInputType: password
-  - varName: main.config.db.mysqldb.port
+  - varName: main.config.db.postgresdb.port
     varApplyMethod: method_replace
     varValueType: string
     varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: '3306'
+    hardcodedDefaultValue: '5432'
     refToSpecVar: ''
-    UIVarTitle: mysql database port
+    UIVarTitle: postgres database port
     UIVarInputType: number
-  - varName: main.config.db.mysqldb.user
+  - varName: main.config.db.postgresdb.user
     varApplyMethod: method_replace
     varValueType: string
     varValueSrcType: src_deployment_ui
     hardcodedDefaultValue: root
     refToSpecVar: ''
-    UIVarTitle: mysql database user
+    UIVarTitle: postgres database user
     UIVarInputType: text
   - varName: main.config.db.type
     varApplyMethod: method_replace
     varValueType: string
-    varValueSrcType: src_deployment_ui
-    hardcodedDefaultValue: mysqldb
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: postgresdb
     refToSpecVar: ''
     UIVarTitle: DB_TYPE
     UIVarInputType: text
@@ -922,6 +922,14 @@ rules:
     varApplyMethod: method_replace
     UIVarValidationRules: []
     UIVarInputType: string
+  - varName: main.config.db.postgresdb.ssl.rejectUnauthorized
+    varApplyMethod: method_replace
+    varValueType: string
+    varValueSrcType: src_hardcoded
+    hardcodedDefaultValue: 'false'
+    refToSpecVar: ''
+    UIVarTitle: ''
+    UIVarInputType: ''
 routes:
   - host: '{{ .deployment.domain }}'
     http:
